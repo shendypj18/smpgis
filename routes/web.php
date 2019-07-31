@@ -26,6 +26,7 @@ Route::get('/persebaran','HomeController@peta')->name('user.petasebaransekolah')
 Route::get('/rutejalan/{latitude}/{longitude}','HomeController@lihat')->name('user.rutejalan');
 Route::get('/rekomendasi','HomeController@rekomendasi')->name('user.rekomendasisekolah');
 Route::get('/hasil','HomeController@hasil')->name('user.hasilrekomendasi');
+Route::get('/perhitungan','HomeController@perhitungan')->name('user.perhitungan');
 
 
 Route::prefix('admin')->group(function()

@@ -259,4 +259,7 @@ class AdminController extends Controller //Class AdminController
         $user=User::all();
         return view('admin.datatabel')->withUser($user);
     }
+
+   
+
 }

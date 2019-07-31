@@ -45,7 +45,7 @@
 
         <a class="collapse-item" href="{{url('rekomendasi')}}">Rekomendasi Sekolah</a>
         <a class="collapse-item" href="{{route('user.petasebaransekolah')}}">Peta Sebaran Sekolah</a> 
-        <a class="collapse-item" href="{{route('admin.tambah.data.tahunan')}}">Hasil Rekomendasi </a>
+        <a class="collapse-item" href="{{route('user.perhitungan')}}">Hasil Rekomendasi </a>
       </div>
     </div>
     </li>
