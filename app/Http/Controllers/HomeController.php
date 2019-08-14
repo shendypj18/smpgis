@@ -7,9 +7,12 @@ use App\Sekolah;
 use App\User;
 use DB;
 use Auth;
+use App\DataTahunan;
+set_time_limit(0);
 
 class HomeController extends Controller
-{
+{   
+    
     /**
      * Create a new controller instance.
      *
@@ -52,49 +55,179 @@ class HomeController extends Controller
 
     public function perhitungan()
     {
+        $lat_user = Auth::user()->latitude;
+        $long_user = Auth::user()->longitude;
+        $sekolah = Sekolah::all();
+        $data = [];
+        $rata = [];
+        foreach ($sekolah as $key => $value) {
+            $data[] = [
+                'nama_sekolah' => $value->nama_sekolah,
+                'lat' => $value->latitude,
+                'long' => $value->longitude,
+                'value' => $this->jarak($value->latitude,$value->longitude),
+                'bobot' => $this->bobot($this->jarak($value->latitude,$value->longitude)),
+                'kuota' => $value->DataTahunan->kuota,
+                'b_kuota' => $this->bobot_kuota($value->DataTahunan->kuota),
+                'grade' => $value->DataTahunan->passing_grade,
+                'b_grade' => $this->nilaiUn($value->DataTahunan->passing_grade),
+                'n_jarak' => $this->min_jarak($this->bobot($this->jarak($value->latitude,$value->longitude))),
+                'n_kuota' => $this->max_kuota($this->bobot_kuota($value->DataTahunan->kuota)),
+                'n_grade' => $this->max_grade($this->nilaiUn($value->DataTahunan->passing_grade)),
+                'h_kuota' => $this->h_normal($this->max_kuota($this->bobot_kuota($value->DataTahunan->kuota)))
+                
+               
+            ];
+        }
        
-        $latitude1 = Auth::user()->latitude;
-        $longitude1 = Auth::user()->longitude;
-        #dd($latitude);
-        $sekolah = Sekolah::orderBy('id', 'DESC')->first();
-        $bobot = 0;
-        #dd($sekolah);
-         for($n = 2 ; $n<=$sekolah->id; $n++){
-            $latitude2 = Sekolah::where('id',$n)->value('latitude');
-            $longitude2 = Sekolah::where('id',$n)->value('longitude');
-            
-            #dd($latitude2[$n]);
-            #$latitude2 = -7.943795;
-            #$longitude2 = 112.659256;
-            
-    
-            $dataJson = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=".$latitude1.",".$longitude1."&destinations=".$latitude2.",".$longitude2."&key=AIzaSyDP3Pgxfyxnzmop6amI-Un99r3MYjapD_4");
-            $data = json_decode($dataJson,true);
-            #dd($data);
-            $nilaiJarak = $data['rows'][0]['elements'][0]['distance']['value']; 
-           # echo $n;
-  
+        $view = $data;
+        
+        
+    //    return json_encode($view);
+        return view('user.perhitungan')->with([
+            'view' => $view
+        ]);
          
-            if ($nilaiJarak>0 && $nilaiJarak<=3000){
-                $bobot = 5;
-            } elseif($nilaiJarak>3000 && $nilaiJarak<=6000){
-                $bobot = 4;
-            } elseif($nilaiJarak>6000 && $nilaiJarak<=9000){
-                $bobot = 3;
-            } elseif($nilaiJarak>9000 && $nilaiJarak<=12000){
-                $bobot = 2;
-            } else {
-                $bobot = 1;
-            }
-            echo '<br>Jarak : '.$nilaiJarak.' meter dan bobotnya : '.$bobot ;
-            #dd($nilaiJarak);
-            }
-       
-       
-        # $bobot = array(0.30,0.40,0.30);
 
-       # $cost =  null ;
 
     }
+
+  
+    public function jarak($lat,$long)
+    {
+        $lat_user = Auth::user()->latitude;
+        $long_user = Auth::user()->longitude;
+
+        $jarak = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=".$lat_user.",".$long_user."&destinations=".$lat.",".$long."&key=AIzaSyDP3Pgxfyxnzmop6amI-Un99r3MYjapD_4");
+        $final = json_decode($jarak,true);
+        return $final['rows'][0]['elements'][0]['distance']['value'];
+    }
+
+    public function bobot($jarak)
+    {
+        $data = $jarak;
+        if ($data >=0 && $data<=3000){
+            return 5;
+        } elseif($data > 3000 && $data<=6000){
+           return 4;
+        } elseif($data > 6000 && $data<=9000){
+            return 3;
+        } elseif($data > 9000 && $data <= 12000){
+            return 2;
+        } else {
+            return 1;
+        }
+    }
+
+    public function bobot_kuota($kuota)
+    {
+        $data = $kuota;
+        if ($data >= 350){
+            return 5;
+        } elseif($data >= 250 && $data < 350){
+           return 4;
+        } elseif($data >= 200 && $data < 250){
+            return 3;
+        } elseif($data >= 100 && $data < 200){
+            return 2;
+        } else {
+            return 1;
+        }
+    }
+    
+    public function nilaiUn($grade)
+    {
+        $b_indo = Auth::user()->b_indo;
+        $b_ing = Auth::user()->b_ing;
+        $mtk = Auth::user()->mtk;
+        $ipa = Auth::user()->ipa;
+        $t_un = $b_indo + $b_ing + $mtk + $ipa;
+
+        $data = $grade - $t_un ;
+        if ($data >= 10){
+            return 5;
+        } elseif($data >= 1 && $data < 10){
+           return 4;
+        } elseif($data == 0){
+            return 3;
+        } elseif($data <= -1 && $data > -10){
+            return 2;
+        } elseif ($data <= -10) {
+            return 1;
+        }
+    }
+
+    public function max_kuota($b_kuota)
+    {   
+        $sekolah = Sekolah::all();
+        $data = [];
+        $rata = [];
+        foreach ($sekolah as $key => $value) {
+            $data[] = [
+                'b_kuota' => $this->bobot_kuota($value->DataTahunan->kuota),
+            ];
+        }
+        $view = $data;
+        foreach($view as $data){
+            $rata[] = $data['b_kuota'];
+        }
+       
+        $nilai_max =  $b_kuota / max($rata) ;
+        // dd($rata);
+        return $nilai_max;
+    }
+
+    public function max_grade($b_grade)
+    {   
+        $sekolah = Sekolah::all();
+        $data = [];
+        $rata = [];
+        foreach ($sekolah as $key => $value) {
+            $data[] = [
+                'b_grade' => $this->bobot_kuota($value->DataTahunan->kuota),
+            ];
+        }
+        $view = $data;
+        foreach($view as $data){
+            $rata[] = $data['b_grade'];
+        }
+       
+        $nilai_max =  $b_grade / max($rata) ;
+        // dd($rata);
+        return $nilai_max;
+    }
+
+    public function min_jarak($b_jarak)
+    {   
+        $sekolah = Sekolah::all();
+        $data = [];
+        $rata = [];
+        foreach ($sekolah as $key => $value) {
+            $data[] = [
+                'b_jarak' => $this->bobot($this->jarak($value->latitude,$value->longitude)),
+            ];
+        }
+        $view = $data;
+        foreach($view as $data){
+            $rata[] = $data['b_jarak'];
+        }
+       
+        $nilai_max = min($rata) /  $b_jarak ;
+        // dd($rata);
+        return $nilai_max;
+    }
+
+    public function h_normal($max_kuota)
+    {
+        $nilai = $max_kuota;
+        $hasil = ($nilai * 0.3) * 100;
+
+        return $hasil;
+    }
+   
+    // public function perangkingan()
+    // {
+    //     # code...
+    // }
     
 }

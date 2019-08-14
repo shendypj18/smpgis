@@ -104,7 +104,9 @@ class AdminController extends Controller //Class AdminController
     public function dataTahunan()
     {
         $tahunan = DataTahunan::all();
+        // dd($tahunan);
         return view('admin.dataTahunan')->withTahunan($tahunan);
+       
     }
     public function tambahTahunan()
     {
