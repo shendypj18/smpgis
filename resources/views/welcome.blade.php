@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>SISTEM PENDUKUNG KEPUTUSAN REKOMENDASI CALON SISWA SEKOLAH MENENGAH ATAS DI KOTA BANDAR LAMPUNG </title>
+        <title>SISTEM PENDUKUNG KEPUTUSAN REKOMENDASI CALON SISWA SEKOLAH MENENGAH PERTAMA DI KOTA BANDAR LAMPUNG </title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    SISTEM PENDUKUNG KEPUTUSAN REKOMENDASI CALON SISWA SEKOLAH MENENGAH ATAS DI KOTA BANDAR LAMPUNG 
+                    SISTEM PENDUKUNG KEPUTUSAN REKOMENDASI CALON SISWA SEKOLAH MENENGAH PERTAMA DI KOTA BANDAR LAMPUNG 
                 </div>
             </div>
         </div>

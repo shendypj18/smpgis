@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('homepage');
     }
     public function sekolah()
     {
@@ -60,28 +60,46 @@ class HomeController extends Controller
         $sekolah = Sekolah::all();
         $data = [];
         $rata = [];
+        $a = 0;
+        foreach ($sekolah as $key => $value) {
+            $rata [] = [
+            'nilai' => $this->jarak($value->latitude,$value->longitude),
+            ];
+            
+        }
+        // dd($rata);
+        
         foreach ($sekolah as $key => $value) {
             $data[] = [
                 'nama_sekolah' => $value->nama_sekolah,
                 'lat' => $value->latitude,
                 'long' => $value->longitude,
-                'value' => $this->jarak($value->latitude,$value->longitude),
-                'bobot' => $this->bobot($this->jarak($value->latitude,$value->longitude)),
+                'value' => $rata[$key]['nilai'],
+                'bobot' => $this->bobot($rata[$key]['nilai']),
                 'kuota' => $value->DataTahunan->kuota,
                 'b_kuota' => $this->bobot_kuota($value->DataTahunan->kuota),
                 'grade' => $value->DataTahunan->passing_grade,
                 'b_grade' => $this->nilaiUn($value->DataTahunan->passing_grade),
-                'n_jarak' => $this->min_jarak($this->bobot($this->jarak($value->latitude,$value->longitude))),
+                'n_jarak' => $this->min_jarak($this->bobot($rata[$key]['nilai'])),
                 'n_kuota' => $this->max_kuota($this->bobot_kuota($value->DataTahunan->kuota)),
                 'n_grade' => $this->max_grade($this->nilaiUn($value->DataTahunan->passing_grade)),
-                'h_kuota' => $this->h_normal($this->max_kuota($this->bobot_kuota($value->DataTahunan->kuota)))
+                'h_kuota' => $this->h_kuota($this->max_kuota($this->bobot_kuota($value->DataTahunan->kuota))),
+                'h_grade' => $this->h_grade($this->max_grade($this->nilaiUn($value->DataTahunan->passing_grade))),
+                'h_jarak' => $this->h_jarak($this->min_jarak($this->bobot($rata[$key]['nilai']))),
+                'hasil' => $this->h_jarak($this->min_jarak($this->bobot($rata[$key]['nilai']))) + $this->h_kuota($this->max_kuota($this->bobot_kuota($value->DataTahunan->kuota))) + $this->h_grade($this->max_grade($this->nilaiUn($value->DataTahunan->passing_grade))),
+                
                 
                
             ];
         }
+        
        
         $view = $data;
+        $urut = array_column($view,'hasil');
         
+        array_multisort($urut, SORT_DESC, $view);
+       
+        // dd($view);
         
     //    return json_encode($view);
         return view('user.perhitungan')->with([
@@ -92,14 +110,20 @@ class HomeController extends Controller
 
     }
 
+    // public function isiJarak(Type $var = null)
+    // {
+    //     # code...
+    // }
+
   
     public function jarak($lat,$long)
     {
         $lat_user = Auth::user()->latitude;
         $long_user = Auth::user()->longitude;
 
-        $jarak = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=".$lat_user.",".$long_user."&destinations=".$lat.",".$long."&key=AIzaSyDP3Pgxfyxnzmop6amI-Un99r3MYjapD_4");
+        $jarak = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=".$lat_user.",".$long_user."&destinations=".$lat.",".$long."&key=AIzaSyAOpdBpwYOOlEcMywl8vXLTBjoHqYXtKDU");
         $final = json_decode($jarak,true);
+        #dd($final);
         return $final['rows'][0]['elements'][0]['distance']['value'];
     }
 
@@ -217,10 +241,26 @@ class HomeController extends Controller
         return $nilai_max;
     }
 
-    public function h_normal($max_kuota)
+    public function h_kuota($max_kuota)
     {
         $nilai = $max_kuota;
-        $hasil = ($nilai * 0.3) * 100;
+        $hasil = ($nilai * 0.25) * 100;
+
+        return $hasil;
+    }
+
+    public function h_grade($max_grade)
+    {
+        $nilai = $max_grade;
+        $hasil = ($nilai * 0.25) * 100;
+
+        return $hasil;
+    }
+
+    public function h_jarak($min_jarak)
+    {
+        $nilai = $min_jarak;
+        $hasil = ($nilai * 0.5) * 100;
 
         return $hasil;
     }

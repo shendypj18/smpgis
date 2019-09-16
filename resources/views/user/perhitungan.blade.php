@@ -108,7 +108,7 @@
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>No</th>
+          <th>No</th>
             <th>Nama Sekolah</th>
             <th>Jarak</th>
             <th>kuota</th>
@@ -119,7 +119,10 @@
             <th>normalisasi jarak</th>
             <th>normalisasi kuota</th>
             <th>normalisasi grade</th>
-            <th>hasil kali bobot</th>
+            <th>V1 jarak</th>
+            <th>V1 kuota</th>
+            <th>V1 grade</th>
+            <th>hasil</th>
           </tr>
         </thead>
         <tbody>
@@ -141,7 +144,10 @@
           <td>{{ $data['n_jarak'] }}</td>
           <td>{{ $data['n_kuota'] }}</td>
           <td>{{ $data['n_grade'] }}</td>
+          <td>{{ $data['h_jarak'] }}</td>
           <td>{{ $data['h_kuota'] }}</td>
+          <td>{{ $data['h_grade'] }}</td>
+          <td>{{ $data['hasil'] }}</td>
         </tr>
         @endforeach
         </tbody>
