@@ -148,16 +148,13 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{URL::to('sig/js/sb-admin-2.min.js')}}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOpdBpwYOOlEcMywl8vXLTBjoHqYXtKDU&callback=initMap" async defer> </script> 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt6a6dy99jZcyrlIe7OghOsZ0khO1x4O8&libraries=places" async defer> </script> 
 <script type="text/javascript"> //library google maps api
     var markers = [
-
 @foreach( $d as $a) {
  "lat": '{{$a->latitude}}',"long": '{{$a->longitude}}',"nama_sekolah": '{{$a->nama_sekolah}}'}, //latitude dan longitude sekolah
-
 @endforeach
     ];
-
         window.onload = function ()
         {
             var mapOptions = 
@@ -167,13 +164,11 @@
                 mapTypeId: google.maps.MapTypeId.ROADMAP};
             var infoWindow = new google.maps.InfoWindow();
             var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-
             for (i = 0; i < markers.length; i++) 
             {
                 var data = markers[i];
         var latnya = data.lat;
         var longnya = data.long;
-
         var myLatlng = new google.maps.LatLng(latnya, longnya);
                 var marker = new google.maps.Marker({
                     position: myLatlng,

@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,25 +9,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () 
 {
-    return view('welcome');
+    return view('user.homepage');
 }
 );
-
-
 Auth::routes();
-Route::post('/regiss', 'Auth\RegisterController@regis')->name('regis.user');
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/register', 'Auth\RegisterController@showregisterForm')->name('auth.register');
+// Route::post('/registere', 'Auth\RegisterController@create')->name('auth.register.submit');
+Route::get('/home', 'HomeController@index')->name('user.homepage');
 Route::get('/sekolah','HomeController@sekolah')->name('user.datasekolah');
 Route::get('/persebaran','HomeController@peta')->name('user.petasebaransekolah');
 Route::get('/rutejalan/{latitude}/{longitude}','HomeController@lihat')->name('user.rutejalan');
 Route::get('/rekomendasi','HomeController@rekomendasi')->name('user.rekomendasisekolah');
 Route::get('/hasil','HomeController@hasil')->name('user.hasilrekomendasi');
 Route::get('/perhitungan','HomeController@perhitungan')->name('user.perhitungan');
-
-
 Route::prefix('admin')->group(function()
 {
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
@@ -59,8 +54,6 @@ Route::prefix('admin')->group(function()
     Route::put('/edit/subkriteria/{id}','AdminController@submiteditsubkriteria')->name('admin.submitsubkriteriaedit');
     Route::delete('/delete/sekolah/{id}', 'AdminController@deletesubkriteria')->name('admin.delete.subkriteria');
     Route::get('/data_pendaftar','AdminController@data_user')->name('admin.datapendaftar');
-
-
-
-
 });
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

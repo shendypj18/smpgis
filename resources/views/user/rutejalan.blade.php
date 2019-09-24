@@ -102,19 +102,15 @@
         line-height: 30px;
         padding-left: 10px;
       }
-
       #right-panel select, #right-panel input {
         font-size: 15px;
       }
-
       #right-panel select {
         width: 100%;
       }
-
       #right-panel i {
         font-size: 12px;
       }
-
       #map {
         height: 500px;
         float: left;
@@ -189,7 +185,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{URL::to('sig/js/sb-admin-2.min.js')}}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOpdBpwYOOlEcMywl8vXLTBjoHqYXtKDU&callback=initMap"> </script> 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt6a6dy99jZcyrlIe7OghOsZ0khO1x4O8> </script> 
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDP3Pgxfyxnzmop6amI-Un99r3MYjapD_4&libraries=places"> </script> -->
     <script>
         var default_lat = -8.251889;
@@ -200,36 +196,28 @@
   $(function(){
     initMap();
   })
-
 var markerArray = [];
-
   function initMap() {
     var map = new google.maps.Map(document.getElementById('Map'), {
       zoom: 4,
       center: {lat: default_lat, lng: default_lng}  // Australia.
     });
-
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer({
       draggable: true,
       map: map,
       panel: document.getElementById('right-panel')
     });
-
     var stepDisplay = new google.maps.InfoWindow;
-
-
     directionsDisplay.addListener('directions_changed', function() {
         //calculateAndDisplayRoute()
       computeTotalDistance(directionsDisplay.getDirections());
           for (var i = 0; i < markerArray.length; i++) {
             markerArray[i].setMap(null);
         }
-
         showSteps(directionsDisplay.getDirections(), markerArray, stepDisplay, map);
       //calculateAndDisplayRoute(pos, {lat: -8.372245, lng: 115.102754}, directionsService, directionsDisplay, stepDisplay, map);
     });
-
     // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -237,7 +225,6 @@ var markerArray = [];
               lat: {{Auth::user()->latitude}},
               lng: {{Auth::user()->longitude}}
             };
-
             //infoWindow.setPosition(pos);
             //infoWindow.setContent('Location found.');
             //infoWindow.open(map);
@@ -251,13 +238,10 @@ var markerArray = [];
           calculateAndDisplayRoute(getCurLocation(), {lat: {{$lat}}, lng: {{$long}}}, directionsService, directionsDisplay, stepDisplay, map);
         }
   }
-
   function calculateAndDisplayRoute(origin, destination, directionsService, directionsDisplay, stepDisplay, map) {
-
     for (var i = 0; i < markerArray.length; i++) {
         markerArray[i].setMap(null);
     }
-
     directionsService.route({
       origin: origin,
       destination: destination,
@@ -274,15 +258,12 @@ var markerArray = [];
       }
     });
   }
-
   function showSteps(directionResult, markerArray, stepDisplay, map) {
     // For each step, place a marker, and add the text to the marker's infowindow.
     // Also attach the marker to an array so we can keep track of it and remove it
     // when calculating new routes.
     var myRoute = directionResult.routes[0].legs[0];
-
     //console.log(directionResult.routes[0].legs[0]);
-
     for (var i = 0; i < myRoute.steps.length; i++) {
       var marker = markerArray[i] = markerArray[i] || new google.maps.Marker();
       //marker.setMap(map);
@@ -292,7 +273,6 @@ var markerArray = [];
           stepDisplay, marker, myRoute.steps[i].instructions, map);
     }
   }
-
   function attachInstructionText(stepDisplay, marker, text, map) {
         google.maps.event.addListener(marker, 'click', function() {
           // Open an info window when the marker is clicked on, containing the text
@@ -301,14 +281,11 @@ var markerArray = [];
           stepDisplay.open(map, marker);
         });
       }
-
   function computeTotalDistance(result) {
     var total = 0;
     var myroute = result.routes[0];
     var terdekat = 0;
-
     terdekat = myroute.legs[0].steps[0].distance.value;
-
     //console.log(result);
     for (var i = 0; i < myroute.legs.length; i++) {
       total += myroute.legs[i].distance.value;

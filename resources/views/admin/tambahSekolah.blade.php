@@ -258,7 +258,7 @@
         </div>
       </div>
     </div>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDP3Pgxfyxnzmop6amI-Un99r3MYjapD_4&libraries=places" async defer> </script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOpdBpwYOOlEcMywl8vXLTBjoHqYXtKDU&libraries=places" async defer> </script>
 <script type="text/javascript">
     window.onload = function() 
     {
@@ -270,7 +270,6 @@
         };
         var infoWindow = new google.maps.InfoWindow();
         var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-
         var marker = new google.maps.Marker(
         {
             position: 
@@ -287,7 +286,6 @@
             var places = searchBox.getPlaces();
             var bounds = new google.maps.LatLngBounds();
             var i, place;
-
             for (i = 0; place = places[i]; i++) 
             {
                 bounds.extend(place.geometry.location);
