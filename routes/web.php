@@ -11,13 +11,13 @@
 */
 Route::get('/', function () 
 {
-    return view('user.homepage');
+    return view('user.beranda');
 }
 );
 Auth::routes();
 // Route::get('/register', 'Auth\RegisterController@showregisterForm')->name('auth.register');
 // Route::post('/registere', 'Auth\RegisterController@create')->name('auth.register.submit');
-Route::get('/home', 'HomeController@index')->name('user.homepage');
+Route::get('/home', 'HomeController@index')->name('user.beranda');
 Route::get('/sekolah','HomeController@sekolah')->name('user.datasekolah');
 Route::get('/persebaran','HomeController@peta')->name('user.petasebaransekolah');
 Route::get('/rutejalan/{latitude}/{longitude}','HomeController@lihat')->name('user.rutejalan');

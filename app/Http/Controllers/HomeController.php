@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sekolah;
 use App\User;
+use App\Subkriteria;
 use DB;
 use Auth;
 use App\DataTahunan;
@@ -26,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('user.beranda');
     }
     public function sekolah()
     {
@@ -77,6 +78,7 @@ class HomeController extends Controller
         foreach ($sekolah as $key => $value) {
             $data3 = $this->bobot($rata[$key]['nilai']);
             $nilai_min = min($rata2) / $data3 ;
+            // dd($data3);
             $data[] = [
                 'nama_sekolah' => $value->nama_sekolah,
                 'lat' => $value->latitude,
@@ -123,18 +125,32 @@ class HomeController extends Controller
     }
     public function bobot($jarak)
     {
+       $subkriteria = Subkriteria::All();
+       $data = [];
+       $rata = [];
+        foreach ($subkriteria as $key => $value) {
+            $data[] = [
+                'jarak' => $value->ba,
+            ];
+        }
+        $view = $data;
+        foreach($view as $data){
+            $rata[] = $data['jarak'];
+        }
         $data = $jarak;
-        if ($data >=0 && $data<=3000){
+        // dd($rata[0]);
+        if ($data >=0 && $data<=$rata[0]){
             return 1;
-        } elseif($data > 3000 && $data<=6000){
+        } elseif($data > 3000 && $data<$rata[1]){
            return 2;
-        } elseif($data > 6000 && $data<=9000){
+        } elseif($data > 6000 && $data<=$rata[2]){
             return 3;
-        } elseif($data > 9000 && $data <= 12000){
+        } elseif($data > 9000 && $data <=$rata[3]){
             return 4;
         } else {
             return 5;
         }
+       
     }
     public function bobot_kuota($kuota)
     {
@@ -197,7 +213,7 @@ class HomeController extends Controller
         $rata = [];
         foreach ($sekolah as $key => $value) {
             $data[] = [
-                'b_grade' => $this->bobot_kuota($value->DataTahunan->kuota),
+                'b_grade' =>  $this->nilaiUn($value->DataTahunan->passing_grade),
             ];
         }
         $view = $data;
@@ -231,19 +247,20 @@ class HomeController extends Controller
     public function h_kuota($max_kuota)
     {
         $nilai = $max_kuota;
-        $hasil = ($nilai * 0.25) * 100;
+        $hasil = ($nilai * 0.10) * 100;
         return $hasil;
     }
     public function h_grade($max_grade)
     {
         $nilai = $max_grade;
-        $hasil = ($nilai * 0.25) * 100;
+        $hasil = ($nilai * 0.20) * 100;
+        // dd($max_grade);
         return $hasil;
     }
     public function h_jarak($min_jarak)
     {
         $nilai = $min_jarak;
-        $hasil = ($nilai * 0.5) * 100;
+        $hasil = ($nilai * 0.7) * 100;
         return $hasil;
     }
    

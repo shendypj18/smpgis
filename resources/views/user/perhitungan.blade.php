@@ -127,14 +127,15 @@
           </tr>
         </thead>
         <tbody>
+        <?php $i = 0 ?>
         @foreach($view as $data)
         <tr>
-          <td></td>
-          
+          <?php $i++ ?>         
           {{-- <td>{{ $data['nama_sekolah'] }}</td>
           <td>{{ $data['bobot'] }}</td>
           <td>{{ $data['value'] }} meter</td>
           <td>{{ $data['kuota'] }}</td> --}}
+          <td>{{ $i }}</td>
           <td>{{ $data['nama_sekolah'] }}</td>
           <td>{{ $data['value'] }} meter</td>
           <td>{{ $data['kuota'] }} Siswa</td>

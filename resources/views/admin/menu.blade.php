@@ -55,11 +55,6 @@
          <i class="fas fa-fw fa-table"></i>
          <span>Data Subkriteria</span></a>
     </li>
-   <li class="nav-item">
-       <a class="nav-link" href="{{route('admin.datapendaftar')}}">
-         <i class="fas fa-fw fa-table"></i>
-         <span>Data Pendaftar</span></a>
-    </li>
 
   <!-- Divider -->
 
