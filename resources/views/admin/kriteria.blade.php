@@ -118,14 +118,11 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <? $i=0 ?>
                               @foreach($kriteria as $data)
+                              <? $i++ ?>
                               <tr>
-                                  <td>
-                                      <?php
-                                      $nomor = 0;
-                                      echo ++$nomor;
-                                       ?>
-                                  </td>
+                                  <td>{{$i}}</td>
                                   <td>{{$data->kriteria}}</td>
                                   <td>{{$data->jenis_kriteria}}</td>
                                   <td><a href="{{route('admin.edit.kriteria', $data->id)}}" class="btn btn-warning">Edit</a></td>

@@ -91,6 +91,7 @@ class AdminController extends Controller //Class AdminController
         $sekolah->latitude=$request->latitude;
         $sekolah->longitude=$request->longitude;
         $sekolah->link_sekolah=$request->link_sekolah;
+        // dd($sekolah);
         $sekolah->save();
 
         return redirect()->back()->withMessage('Berhasil Diedit');

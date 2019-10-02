@@ -6,6 +6,7 @@ use App\User;
 use App\Subkriteria;
 use DB;
 use Auth;
+use Image;
 use App\DataTahunan;
 set_time_limit(0);
 class HomeController extends Controller
@@ -34,6 +35,68 @@ class HomeController extends Controller
        $sekolah=Sekolah::all();
         return view('user.sekolah')->withSekolah($sekolah);
     }
+    public function editprofil($id){
+        
+        $user = User::find($id);
+        return view('user.editprofil',compact('user'));
+    }
+
+    public function editprofilsubmit(Request $request, $id) //mengedit permintaan data sekolah 
+    {
+        $this->validate($request, array(
+        'name' => 'required',
+        'username' => 'required',
+        'asal_sekolah' => 'required',
+        'email' => 'required',
+        'alamat' => 'required',
+        'latitude' => 'required',
+        // 'gambar' => 'required',
+        'longitude' => 'required',
+        'b_indo' => 'required',
+        'mtk' => 'required',
+        'ipa' => 'required',
+        'photo' => '',
+        'password' => '',
+      
+        ));
+        // $user->name= request('nama_lengkap');
+        // $user->username= request('username');
+        // $user->asal_sekolah= request('asal_sekolah');
+        // $user->email= request('email');
+        // $user->alamat= request('alamat');
+        // $user->latitude= request('latitude');
+        // $user->longitude= request('longitude');
+        // $user->b_indo= request('b_indo');
+        // $user->mtk= request('mtk');
+        // $user->ipa= request('ipa');
+        // $user->password= request('password');
+        $user = User::find($id);
+        // dd($edituser);
+        $user->name=$request->name;
+        $user->username=$request->username;
+        $user->asal_sekolah=$request->asal_sekolah;
+        $user->email=$request->email;
+        $user->alamat=$request->alamat;
+        $user->latitude=$request->latitude;
+        $user->longitude=$request->longitude;
+        if ($request->hasFile('photo')){$profileImage = $request->file('photo');
+        Image::make($profileImage)->resize(300, 300);
+        $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+                                  $profileImage->getClientOriginalExtension();
+
+        $upload_path = 'uploads';
+        $user->photo = $profileImageSaveAsName;
+        $success = $profileImage->move($upload_path, $profileImageSaveAsName);}
+        $user->b_indo=$request->b_indo;
+        $user->mtk=$request->mtk;
+        $user->ipa=$request->ipa;
+        // $user->password=$request->password;
+        // dd($user);
+        $user->save();
+        
+        return redirect()->back()->withMessage('Berhasil Diedit');
+    }
+
     public function peta()
     {
         $d=Sekolah::all();
