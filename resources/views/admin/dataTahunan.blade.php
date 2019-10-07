@@ -121,7 +121,7 @@
                             <?php $i=0 ?>
                               @foreach($tahunan as $data)
                             <tr>
-                              <? $i++ ?>
+                              <?php $i++ ?>
                               <td>{{$i}}</td>
                               <td>{{$data->nama_sekolah}}</td>
                               <td>{{$data->passing_grade}}</td>

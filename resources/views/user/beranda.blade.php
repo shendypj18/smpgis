@@ -65,7 +65,7 @@
       </div>
 
       <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+      <p class="masthead-subheading font-weight-light mb-0">Jarak - Kuota - Passing Grade</p>
 
     </div>
   </header>
@@ -75,7 +75,7 @@
     <div class="container">
 
       <!-- Portfolio Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Sekolah</h2>
 
       <!-- Icon Divider -->
       <div class="divider-custom">
@@ -87,77 +87,566 @@
       </div>
 
       <!-- Portfolio Grid Items -->
+      <div class="text-center">
+      <div id="myBtnContainer">
+          <button class="btn btn-danger active" onclick="filterSelection('all')"> Show all</button>
+          <button class="btn btn-primary" onclick="filterSelection('tkp')"> Tanjung Karang Pusat</button>
+          <button class="btn btn-primary" onclick="filterSelection('tkb')"> Tanjung Karang Barat</button>
+          <button class="btn btn-primary" onclick="filterSelection('tkt')"> Tanjung Karang Timur</button>
+          <button class="btn btn-primary" onclick="filterSelection('enggal')"> Enggal</button>
+          <button class="btn btn-primary" onclick="filterSelection('kemiling')"> Kemiling</button>
+          <button class="btn btn-primary" onclick="filterSelection('lr')"> Labuhan Ratu</button>
+          <button class="btn btn-primary" onclick="filterSelection('panjang')"> Panjang</button>
+        </div>
+        <div>
+          <br>
+        </div>
+        <div id="myBtnContainer">
+        <button class="btn btn-primary" onclick="filterSelection('wh')"> Way Halim</button>
+        <button class="btn btn-primary" onclick="filterSelection('tbu')"> Teluk Betung Utara</button>
+        <button class="btn btn-primary" onclick="filterSelection('tbb')"> Teluk Betung Barat</button>
+        <button class="btn btn-primary" onclick="filterSelection('bw')"> Bumi Waras</button>
+        <button class="btn btn-primary" onclick="filterSelection('panjang')"> Panjang</button>
+        <button class="btn btn-primary" onclick="filterSelection('sb')"> Suka Bumi</button>
+        <button class="btn btn-primary" onclick="filterSelection('sukarame')"> Sukarame</button>
+        <button class="btn btn-primary" onclick="filterSelection('ts')"> Tanjung Senang</button>
+        <button class="btn btn-primary" onclick="filterSelection('rb')"> Rajabasa</button>
+        </div>
+      </div>
+    <div>
+      </div>
       <div class="row">
-
         <!-- Portfolio Item 1 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+        
+        <div class="displayy col-md-6 col-lg-4 enggal tkp tbs">
+          <div class="portfolio-item mx-auto"  data-toggle="modal" data-target="#sekolah4">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="{{URL::to('beranda/img/portfolio/cabin.png')}}" alt="">
+            <img class="img-fluid enggal" src="{{URL::to('beranda/sekolah/smpn4.jpeg')}}" alt="">
+          <div class="text-center">
+            <p> SMPN 4 Bandar Lampung </p>
+          </div>
           </div>
         </div>
 
-        <!-- Portfolio Item 2 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+        <div class="col-md-6 col-lg-4 enggal tkp tbs">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah9">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/cake.png" alt="">
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn9.jpg')}}" alt="">
+            <div class="text-center">
+            <p>SMPN 9 Bandar Lampung</p>
+            </div>
           </div>
         </div>
 
-        <!-- Portfolio Item 3 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+        <div class="col-md-6 col-lg-4 enggal tkp tbs">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah23">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/circus.png" alt="">
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn23.png')}}" alt="">
+            <div class="text-center">
+            <p>SMPN 23 Bandar Lampung</p>
+            </div>
           </div>
         </div>
 
-        <!-- Portfolio Item 4 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+        <div class="col-md-6 col-lg-4 enggl tkp tbs">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah25">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/game.png" alt="">
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn25.jpg')}}" alt="">
+            <div class="text-center">
+            <p>SMPN 25 Bandar Lampung</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 enggal tkp tkt kedamaian wh">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah1">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn1.jpg')}}" alt="">
+            <div class="text-center">
+            <p>SMPN 1 Bandar Lampung</p>
+            </div>
           </div>
         </div>
 
-        <!-- Portfolio Item 5 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
+        <div class="col-md-6 col-lg-4  enggal tkp tkt kedamaian wh">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah5">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/safe.png" alt="">
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn5.jpg')}}" alt="">
+            <div class="text-center">
+            <p>SMPN 5 Bandar Lampung</p>
+            </div>
           </div>
         </div>
 
-        <!-- Portfolio Item 6 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+        <div class="col-md-6 col-lg-4 enggal tkp tbs">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah23">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/submarine.png" alt="">
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn23.png')}}" alt="">
+            <div class="text-center">
+            <p>SMPN 23 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 enggal tkp tbs ">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah12">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn12.png')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 12 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 enggal tkp tbs">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah33">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn33.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 33 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 lp kedaton tkb tkp">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah7">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn7.png')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 7 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 lp kedaton tkb tkp">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah10">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn10.png')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 10 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 lp kedaton tkb tkp">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah32">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn32.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 32 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 lp kedaton tkb tkp">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah34">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn34.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 34 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 kemiling rb">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah22">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn22.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 22 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 kemiling rb">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah2">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn2.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 2 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 kemiling rb">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah28">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn28.png')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 28 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 kemiling">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah13">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn13.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 13 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 kemiling">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah14">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn14.png')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 14 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 kemiling">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah26">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn26.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 26 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 lr ts">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah8">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn8.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 8 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 lr ts">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah19">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn19.JPG')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 19 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 lr ts">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah20">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn20.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 20 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 tbu tbb bw">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah17">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn17.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 17 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 tbu tbb bw">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah18">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn18.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 18 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 tbb tbu bw">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah16">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn16.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 16 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 tbb tbu bw">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah35">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn35.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 35 Bandar Lampung</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 tbb">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah3">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn3.png')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 3 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 tbb">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah6">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn6.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 6 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 tbb">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah15">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn15.png')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 15 Bandar Lampung</p>
+          </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 tbb">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah27">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn27.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 27 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 panjang sb bw">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah11">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn11.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 11 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 panjang sb bw">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah30">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn30.jpeg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 30 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 panjang sb bw">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah37">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn37.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 37 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 sukarame sb wh">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah27">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn27.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 27 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 sukarame sb wh">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah24">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn24.png')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 24 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 sukarame sb wh">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah29">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn29.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 29 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 sukarame sb wh">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah31">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn31.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 31 Bandar Lampung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 sukarame sb wh">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#sekolah36">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{URL::to('beranda/sekolah/smpn36.jpg')}}" alt="">
+            <div class="text-center">
+              <p>SMPN 36 Bandar Lampung</p>
+            </div>
           </div>
         </div>
 
@@ -186,10 +675,10 @@
       <!-- About Section Content -->
       <div class="row">
         <div class="col-lg-4 ml-auto">
-          <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
+          <p class="lead">Sistem ini dibuat untuk memenuhi syarat kelulusan Skripsi Ilmu Komputer Universitas Lampung.</p>
         </div>
         <div class="col-lg-4 mr-auto">
-          <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
+          <p class="lead">Sistem dapat membantu calon siswa smp untuk mengetahui rekomendasi sekolah smp yang ada di Bandar Lampung</p>
         </div>
       </div>
 
@@ -229,8 +718,7 @@
         <!-- Footer About Text -->
         <div class="col-lg-4">
           <h4 class="text-uppercase mb-4">About Developer</h4>
-          <p class="lead mb-0">sistem ini dibuat by
-            <a>Akmal</a>.</p>
+          <p class="lead mb-0">Muhammad Akmal Jahidi.</p>
         </div>
 
       </div>
@@ -240,7 +728,7 @@
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">
     <div class="container">
-      <small>Copyright &copy; Your Website 2019</small>
+      <small>Copyright &copy; SPK SMP 2019</small>
     </div>
   </section>
 
@@ -253,8 +741,8 @@
 
   <!-- Portfolio Modals -->
 
-  <!-- Portfolio Modal 1 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+  @foreach($sekolah as $data)
+<div class="portfolio-modal modal fade" id="sekolah{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -267,46 +755,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
-                <!-- Icon Divider -->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/cabin.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 2 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{$data->nama_sekolah}}</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -318,11 +767,11 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/cake.png" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
+
+                <p class="mb-5">VISI : {{$data->visi}}.</p>
+                <br><p class="mb-5">MISI : {{$data->misi}}</p>
+                <br><p class="mb-5"> ALAMAT : {{$data->alamat}}</p>
+                <br><p class="mb-5"> No. Telp : {{$data->no_telp}}</p>
               </div>
             </div>
           </div>
@@ -330,163 +779,56 @@
       </div>
     </div>
   </div>
+  @endforeach
 
-  <!-- Portfolio Modal 3 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
-                <!-- Icon Divider -->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+ 
 
-  <!-- Portfolio Modal 4 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-                <!-- Icon Divider -->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/game.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+ 
 
-  <!-- Portfolio Modal 5 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                <!-- Icon Divider -->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 6 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                <!-- Icon Divider -->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/submarine.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <script>
+      filterSelection("all")
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("col-md-6");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+      }
+      
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+        }
+      }
+      
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);     
+          }
+        }
+        element.className = arr1.join(" ");
+      }
+      
+      // Add active class to the current button (highlight it)
+      var btnContainer = document.getElementById("myBtnContainer");
+      var btns = btnContainer.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
+      </script>
   <!-- Bootstrap core JavaScript -->
   <script src="{{URL::to('beranda/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{URL::to('beranda/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

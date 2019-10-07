@@ -28,13 +28,34 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.beranda');
+        $sekolah=Sekolah::count();
+        return view('user.dashboard')->with(compact('sekolah'));
     }
     public function sekolah()
     {
        $sekolah=Sekolah::all();
         return view('user.sekolah')->withSekolah($sekolah);
     }
+
+    public function show($id)
+    {
+        $sekolah=Sekolah::find($id);
+        return view('user.showsekolah')->with(compact('sekolah'));
+    }
+
+    public function ratingsekolah(Request $request)
+
+    {
+        request()->validate(['rate' => 'required']);
+        $post = Sekolah::find($request->id);
+        $rating = new \willvincent\Rateable\Rating;
+        $rating->rating = $request->rate;
+        $rating->user_id = auth()->user()->id;
+        $post->ratings()->save($rating);
+        return redirect()->route("user.sekolah");
+
+    }
+
     public function editprofil($id){
         
         $user = User::find($id);
@@ -310,20 +331,20 @@ class HomeController extends Controller
     public function h_kuota($max_kuota)
     {
         $nilai = $max_kuota;
-        $hasil = ($nilai * 0.10) * 100;
+        $hasil = ($nilai * 0.25) * 100;
         return $hasil;
     }
     public function h_grade($max_grade)
     {
         $nilai = $max_grade;
-        $hasil = ($nilai * 0.20) * 100;
+        $hasil = ($nilai * 0.25) * 100;
         // dd($max_grade);
         return $hasil;
     }
     public function h_jarak($min_jarak)
     {
         $nilai = $min_jarak;
-        $hasil = ($nilai * 0.7) * 100;
+        $hasil = ($nilai * 0.5) * 100;
         return $hasil;
     }
    

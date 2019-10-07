@@ -135,7 +135,7 @@
             <div class="col-md-8">
               <input type="submit" class="btn btn-primary" value="Save Changes">
               <span></span>
-              <a href="/sekolah" type="button" class="btn btn-default">cancel</a>
+              <a href="/sekolahh" type="button" class="btn btn-default">cancel</a>
             </div>
           </div>
         </form>

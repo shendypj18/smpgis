@@ -118,9 +118,9 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <? $i=0 ?>
+                            <?php $i=0 ?>
                               @foreach($kriteria as $data)
-                              <? $i++ ?>
+                              <?php $i++ ?>
                               <tr>
                                   <td>{{$i}}</td>
                                   <td>{{$data->kriteria}}</td>

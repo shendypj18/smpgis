@@ -45,17 +45,7 @@
             </button>
 
             <!-- Topbar Search -->
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-              <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm"></i>
-                  </button>
-                </div>
-              </div>
-            </form>
-
+    
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 
@@ -185,7 +175,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{URL::to('sig/js/sb-admin-2.min.js')}}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt6a6dy99jZcyrlIe7OghOsZ0khO1x4O8> </script> 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt6a6dy99jZcyrlIe7OghOsZ0khO1x4O8&libraries=places"> </script> 
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDP3Pgxfyxnzmop6amI-Un99r3MYjapD_4&libraries=places"> </script> -->
     <script>
         var default_lat = -8.251889;
@@ -231,9 +221,9 @@ var markerArray = [];
             //map.setCenter(pos);
             calculateAndDisplayRoute(pos, {lat: {{$lat}}, lng: {{$long}}}, directionsService, directionsDisplay, stepDisplay, map);
           }, function() {
-                calculateAndDisplayRoute(getCurLocation(), {lat: {{$lat}}, lng: {{$long}}}, directionsService, directionsDisplay, stepDisplay, map);
+                
           });
-        } else {
+        } else {calculateAndDisplayRoute(getCurLocation(), {lat: {{$lat}}, lng: {{$long}}}, directionsService, directionsDisplay, stepDisplay, map);
           // Browser doesn't support Geolocation
           calculateAndDisplayRoute(getCurLocation(), {lat: {{$lat}}, lng: {{$long}}}, directionsService, directionsDisplay, stepDisplay, map);
         }
